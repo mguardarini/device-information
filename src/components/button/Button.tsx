@@ -1,6 +1,15 @@
 import React from 'react'
-import { Text, TouchableOpacity } from 'react-native'
+import { Text, TouchableOpacity, GestureResponderEvent } from 'react-native'
 import styles from './Button.style'
+import PropTypes from 'prop-types'
+
+type Props = {
+  text: string
+  onPress: (event: GestureResponderEvent) => void
+  disabled?: boolean
+  testID?: string
+  opacity:boolean
+}
 
 const Button = ({
   text,
@@ -9,8 +18,7 @@ const Button = ({
   disabled,
   testID,
   opacity
-}) => {
-  return (
+}: Props) => (
     <TouchableOpacity
       disabled={disabled}
       onPress={onPress}
@@ -31,6 +39,13 @@ const Button = ({
       </Text>
     </TouchableOpacity>
   )
+
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  onPress: PropTypes.func,
+  testID: PropTypes.string,
+  disabled: PropTypes.object,
 }
 
 export default Button
