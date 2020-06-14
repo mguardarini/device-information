@@ -12,7 +12,7 @@ import { InfoItem } from './info-item'
 import {Button} from '../../components/button'
 import {Image} from '../../components/image'
 import colors from '../../assets/colors'
-import images from '../../assets/imagesUrl'
+import imagesUrl from '../../assets/imagesUrl'
 
 import {DeviceInfoService} from "../../infrastructure/services/DeviceInfoService"
 
@@ -50,7 +50,7 @@ const DeviceInformation = ({navigation}) =>{
     return (
         <SafeAreaView style={styles.safeAreaView}>
             <View>
-                <Image style={styles.image} source={images.deviceInformation}/>
+                <Image style={styles.image} source={imagesUrl.deviceInformation}/>
             </View>
             <View style={styles.view
             }>
