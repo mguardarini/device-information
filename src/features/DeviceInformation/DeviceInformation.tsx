@@ -13,7 +13,6 @@ import {Button} from '../../components/button'
 import {Image} from '../../components/image'
 import colors from '../../assets/colors'
 import imagesUrl from '../../assets/imagesUrl'
-
 import {DeviceInfoService} from "../../infrastructure/services/DeviceInfoService"
 
 const DeviceInformation = ({navigation}) =>{
