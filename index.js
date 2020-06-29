@@ -3,7 +3,9 @@
  */
 
 import {AppRegistry} from 'react-native';
-import  NavigationScreen from './src/features/NavigationScreen';
+import  DeviceInformation from './src/features';
 import {name as appName} from './app.json';
-
-AppRegistry.registerComponent(appName, () => NavigationScreen);
+if(__DEV__) {
+    import('./ReactotronConfig').then(() => console.log('Reactotron Configured'))
+}
+AppRegistry.registerComponent(appName, () => DeviceInformation);
