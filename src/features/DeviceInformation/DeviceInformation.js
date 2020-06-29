@@ -6,65 +6,48 @@ import React,{
 } from 'react';
 import {
   SafeAreaView,
-  View,
-  Button
+  View
 } from 'react-native';
+import {Button} from '../../components/button'
+
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
 import * as deviceInfoActions from "../../store/actions/actions"
 
 import styles from './DeviceInformation.styles'
 import { InfoItem } from './info-item'
-// import {Button} from '../../components/button'
 import {Image} from '../../components/image'
 import colors from '../../assets/colors'
 import imagesUrl from '../../assets/imagesUrl'
 
 import {DeviceInfoService} from "../../infrastructure/services/DeviceInfoService"
 
-const DeviceInformation = ({fetchDeviceInformation, device}) =>{
+const DeviceInformation = ({fetchDeviceInformation, device, navigation}) =>{
 
     const [uniqueId, setUniqueId] = useState('')
     const [androidAppleToken, setAndroidAppleToken] = useState('')
     const [manufacturer, setManufacturer] = useState('')
     const [ipAddress, setIpAddress] = useState('')
-    //const fn = fetchDeviceInformation()
-    const _fetchUser = ()=> {
-        fetchDeviceInformation()
-    }
-    useEffect(() => {
-        const fn = fetchDeviceInformation()
-        const {
-            data,
-            error,
-            loading
-        } = device;
-        setUniqueId(device.data.dataDevice)
-        // async function getAllDeviceInformations() {
 
-        //     //const a = props.device
-            
-        //     // const device = await DeviceInfoService.info();
-        //     // setManufacturer(device.manufacturer)
-        //     // setUniqueId(device.uniqueId)
-        //     // setAndroidAppleToken(device.token)
-        //     // setIpAddress(device.ipAddress)
-        // }
-        // getAllDeviceInformations();
+    useEffect(() => {
+      setManufacturer(device.data.manufacturer)
+      setUniqueId(device.data.uniqueId)
+      setAndroidAppleToken(device.data.token)
+      setIpAddress(device.data.ipAddress)     
     }, []);
 
 
-    // navigation.setOptions({
-    //     headerShown: true,
-    //     headerTitle: 'Device Informations',
-    //     headerTitleAlign: 'center',
-    //     headerStyle: {
-    //       backgroundColor: colors.grayBlack,
-    //     },
-    //     headerTitleStyle: {
-    //         color: colors.white
-    //     }
-    // })
+    navigation.setOptions({
+        headerShown: true,
+        headerTitle: 'Device Informations',
+        headerTitleAlign: 'center',
+        headerStyle: {
+          backgroundColor: colors.grayBlack,
+        },
+        headerTitleStyle: {
+            color: colors.white
+        }
+    })
 
     return (
         <SafeAreaView style={styles.safeAreaView}>
@@ -78,9 +61,8 @@ const DeviceInformation = ({fetchDeviceInformation, device}) =>{
                 <InfoItem label="MAC" value = {manufacturer}/>
                 <InfoItem label="IP Address" value = {ipAddress}/>
                 <Button
-              onPress={() => _fetchUser()}
-              title="Refresh"
-            />
+                    text="Share"
+                />
             </View>
         </SafeAreaView>
     )

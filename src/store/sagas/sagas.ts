@@ -5,26 +5,14 @@ import DeviceInformationActions,{DeviceTypes} from '../actions/actions'
 import * as deviceInfoActions from '../actions'
 
 
-const getTest = () => {
-
-  console.log("fui chamada kerida.")
-
-  const data = { 
-    dataDevice:"test"
-  }
-
-  return data;
-}
-
 function* fetchDeviceInformation() {
   try {
-    console.log("sagaaaa")
     yield put(DeviceInformationActions.fetchDeviceInformation());
-    const response = yield call(getTest);
+    const response = yield call(DeviceInfoService.info);
     if(response)
       yield put(DeviceInformationActions.fetchDeviceInformationSuccess(response));
   } catch (err) {
-      console.log("Saga: "+err)
+      console.log(err)
   }
 }
 
