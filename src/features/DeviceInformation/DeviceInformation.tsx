@@ -1,36 +1,38 @@
-import React,{useState, useEffect} from 'react';
+import React,{
+    useState, 
+    useEffect,
+    useSelector,
+    useDispatch
+} from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
+  View
 } from 'react-native';
+import {Button} from '../../components/button'
+
+import { connect } from "react-redux"
+import { bindActionCreators } from 'redux'
+import {CreateActions} from "../../store/ducks/DeviceInformation"
+
 import styles from './DeviceInformation.styles'
 import { InfoItem } from './info-item'
-import {Button} from '../../components/button'
 import {Image} from '../../components/image'
 import colors from '../../assets/colors'
 import imagesUrl from '../../assets/imagesUrl'
 import {DeviceInfoService} from "../../infrastructure/services/DeviceInfoService"
 
-const DeviceInformation = ({navigation}) =>{
-    
+const DeviceInformation = ({fetchDeviceInformation, device, navigation}) =>{
+
     const [uniqueId, setUniqueId] = useState('')
     const [androidAppleToken, setAndroidAppleToken] = useState('')
     const [manufacturer, setManufacturer] = useState('')
     const [ipAddress, setIpAddress] = useState('')
 
     useEffect(() => {
-        async function getAllDeviceInformations() {
-            const device = await DeviceInfoService.info();
-            setManufacturer(device.manufacturer)
-            setUniqueId(device.uniqueId)
-            setAndroidAppleToken(device.token)
-            setIpAddress(device.ipAddress)
-        }
-        getAllDeviceInformations();
+      setManufacturer(device.data.manufacturer)
+      setUniqueId(device.data.uniqueId)
+      setAndroidAppleToken(device.data.token)
+      setIpAddress(device.data.ipAddress)     
     }, []);
 
 
@@ -57,11 +59,20 @@ const DeviceInformation = ({navigation}) =>{
                 <InfoItem label="Token" value = {androidAppleToken}/>
                 <InfoItem label="MAC" value = {manufacturer}/>
                 <InfoItem label="IP Address" value = {ipAddress}/>
-
-                <Button text= "Share"/>
+                <Button
+                    text="Share"
+                />
             </View>
         </SafeAreaView>
     )
 }
 
-export default DeviceInformation
+const mapStateToProps = state => ({
+    device: state.device,
+});
+    
+const mapDispatchToProps = dispatch => ({
+    fetchDeviceInformation: () => dispatch(CreateActions.default.fetchDeviceInformation()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeviceInformation);
