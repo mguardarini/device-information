@@ -3,7 +3,7 @@
 O intuito desse repo é testar algumas bibliotecas que estão em alta e que tenho vontade de enteder melhor a arquitetura utilizada.
 
 Por enquanto, o Aplicativo tem a simples função de mostrar as informações do aplicativo, ele pode evoluir mas a ideia é não ter nenhuma funcionalidade especifica, somente para motivos de estudo.
-<img src="docs/images/app.png" align="right" width="200" height="400"  />
+<img src="docs/images/app.png" align="right" width="300" height="600"  />
 
 Por enquanto ele está utilizando as seguintes bibliotecas: 
 
