@@ -1,8 +1,8 @@
-import { reducer as deviceInfoReducer } from './reducer'
+import { deviceInformationReducer } from './DeviceInformation'
 import {combineReducers} from 'redux'
 
 const rootReducer = combineReducers({
-   device: deviceInfoReducer
+   device: deviceInformationReducer
 })
 
 export default rootReducer

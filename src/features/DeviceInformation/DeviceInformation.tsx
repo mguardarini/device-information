@@ -12,7 +12,7 @@ import {Button} from '../../components/button'
 
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import * as deviceInfoActions from "../../store/actions/actions"
+import {CreateActions} from "../../store/ducks/DeviceInformation"
 
 import styles from './DeviceInformation.styles'
 import { InfoItem } from './info-item'
@@ -72,7 +72,7 @@ const mapStateToProps = state => ({
 });
     
 const mapDispatchToProps = dispatch => ({
-    fetchDeviceInformation: () => dispatch(deviceInfoActions.default.fetchDeviceInformation()),
+    fetchDeviceInformation: () => dispatch(CreateActions.default.fetchDeviceInformation()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeviceInformation);
