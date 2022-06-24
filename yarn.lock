@@ -1103,7 +1103,7 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.1.0.tgz#0e81ce56b4883b4b2a3001ebe1ab298b84237204"
   integrity sha512-afmTuJrylUU/0OtqzaRkbyYFFNgCF73Bvel/sw90pvGrWIZ+vyoIJqA6eMSoA6+nb443kTmulmBtC9NerXboNg==
-  
+
 "@testing-library/react-native@^5.0.3":
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/@testing-library/react-native/-/react-native-5.0.3.tgz#8821dcf7fe7364bc7f427d853cd96e4407d88a4f"
@@ -3047,9 +3047,9 @@ has@^1.0.3:
     function-bind "^1.1.1"
 
 hermes-engine@~0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/hermes-engine/-/hermes-engine-0.5.0.tgz#d914acce72e9657b3c98875ad3f9094d8643f327"
-  integrity sha512-jSuHiOhdh2+IF3bH2gLpQ37eMkdUrEb9GK6PoG3rLRaUDK3Zn2Y9fXM+wyDfoUTA3gz9EET0/IIWk5k21qp4kw==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/hermes-engine/-/hermes-engine-0.5.1.tgz#601115e4b1e0a17d9aa91243b96277de4e926e09"
+  integrity sha512-hLwqh8dejHayjlpvZY40e1aDCDvyP98cWx/L5DhAjSJLH8g4z9Tp08D7y4+3vErDsncPOdf1bxm+zUWpx0/Fxg==
 
 hoist-non-react-statics@^2.3.1:
   version "2.5.5"
